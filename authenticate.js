@@ -42,6 +42,7 @@ exports.jwtPassport = passport.use(
 exports.verifyUser = passport.authenticate('jwt', {session: false});
 
 exports.verifyAdmin = function(req, res, next) {
+    req.user = decoded ;
     if(req.user.admin) {
         return next();
     } else {
